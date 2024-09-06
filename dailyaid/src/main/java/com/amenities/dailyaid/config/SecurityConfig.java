@@ -33,7 +33,9 @@ public class SecurityConfig {
         http.csrf().disable()
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll()  // Allow access to H2 console
-                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**","/api/saveUser","/api/getUser/{username}","/api/request-reset-password","/api/reset-password","/api/request-otp/{mobileNumber}","/api/validate-otp/{mobileNumber}/{otp}").permitAll()
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**","/api/saveUser","/api/getUser/{username}"
+                                ,"/api/request-reset-password","/api/reset-password","/api/request-otp/{mobileNumber}",
+                                "/api/validate-otp/{mobileNumber}/{otp}").permitAll()
                         .requestMatchers(HttpMethod.POST,  "/api/authenticate").permitAll() // Permit all POST requests to /authenticate
                         .anyRequest().authenticated() // All other requests need authentication
                 )

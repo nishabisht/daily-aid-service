@@ -44,6 +44,7 @@ public class AuthenticationController {
         return ResponseEntity.status(HttpStatus.CREATED).body("OTP generated");
     }
 
+    //merge mobile authentication to username / password authentication to create JWT token
     @PostMapping("/validate-otp/{mobileNumber}/{otp}")
     public ResponseEntity<String> validateOtp(@RequestParam String mobileNumber,@RequestParam String otp){
         boolean isValid= otpService.validate(mobileNumber,otp);
